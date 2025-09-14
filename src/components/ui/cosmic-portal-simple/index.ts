@@ -1,1 +1,0 @@
-export { default as CosmicPortalSimple } from "./CosmicPortalSimple.vue";
