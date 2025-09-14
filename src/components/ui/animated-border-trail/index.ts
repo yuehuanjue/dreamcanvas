@@ -1,0 +1,1 @@
+export { default as AnimatedBorderTrail } from "./AnimatedBorderTrail.vue";

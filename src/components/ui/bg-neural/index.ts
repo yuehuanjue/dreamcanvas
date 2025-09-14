@@ -1,0 +1,1 @@
+export { default as BgNeural } from "./BgNeural.vue";
