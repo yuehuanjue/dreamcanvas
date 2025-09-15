@@ -161,17 +161,18 @@ const shouldUseComplexAnimations = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0.6;
-  padding: 1rem 0 2rem;
+  min-height: clamp(50vh, 60vh, 70vh);
+  padding: clamp(1rem, 3vw, 2rem) 0;
   position: relative;
 }
 
 .hero-content {
   text-align: center;
-  max-width: 900px;
+  max-width: min(95vw, 900px);
   margin: 0 auto;
   z-index: 10;
   position: relative;
+  padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 .hero-title {
@@ -255,15 +256,17 @@ const shouldUseComplexAnimations = computed(() => {
 
 /* Artistic Description Styles */
 .artistic-description {
-  font-size: clamp(0.85rem, 1.6vw, 1rem);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
   margin-bottom: 1.5rem;
-  line-height: 1.5;
-  max-width: 800px;
+  line-height: 1.6;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .desc-highlight {
@@ -470,7 +473,7 @@ const shouldUseComplexAnimations = computed(() => {
   color: rgba(226, 232, 240, 0.9);
   margin-bottom: 2rem;
   line-height: 1.5;
-  max-width: 600px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -506,9 +509,9 @@ const shouldUseComplexAnimations = computed(() => {
 
 /* Features Section */
 .features-section {
-  padding: 1rem 0 3rem;
+  padding: clamp(1rem, 2vw, 2rem) 0 clamp(2rem, 4vw, 3rem);
   width: 100%;
-  margin-top: -2rem;
+  margin-top: clamp(-2rem, -3vw, -1rem);
   position: relative;
   z-index: 5;
 }
@@ -611,114 +614,143 @@ const shouldUseComplexAnimations = computed(() => {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .content-wrapper {
-    padding: 0 1.5rem;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+  }
+
+  .hero-content {
+    max-width: min(92vw, 800px);
+  }
+
+  .artistic-description {
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+    max-width: min(88vw, 650px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: clamp(45vh, 55vh, 65vh);
+    padding: clamp(1rem, 2.5vw, 1.5rem) 0;
   }
 
   .features-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    max-width: 900px;
   }
 
   .feature-card {
-    padding: 2rem 1.5rem;
+    padding: clamp(1.5rem, 3vw, 2rem);
   }
 
   .artistic-title {
-    gap: 0.3rem;
+    gap: clamp(0.2rem, 1vw, 0.4rem);
   }
 
   .title-word {
-    font-size: 0.9em;
-  }
-
-  .tool-word::after {
-    right: -20px;
-    font-size: 0.5em;
-  }
-
-  /* Reduce animation complexity on tablets */
-  .title-word {
-    text-shadow:
-      0 0 15px rgba(0, 212, 255, 0.4),
-      0 0 30px rgba(147, 51, 234, 0.2),
-      0 5px 10px rgba(0, 0, 0, 0.3);
+    font-size: clamp(0.85em, 1.5vw, 0.95em);
   }
 }
 
 @media (max-width: 768px) {
-  .content-wrapper {
-    padding: 0 1rem;
+  .hero-section {
+    min-height: clamp(40vh, 50vh, 60vh);
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
   }
 
-  .hero-section {
-    min-height: 60vh;
-    padding: 1.5rem 0 2rem;
+  .hero-content {
+    max-width: min(95vw, 600px);
+    padding: 0 clamp(0.75rem, 2vw, 1.5rem);
   }
 
   .artistic-title {
     flex-direction: column;
-    gap: 0.2rem;
+    gap: clamp(0.1rem, 0.5vw, 0.3rem);
+    line-height: 1.1;
   }
 
   .title-word {
-    font-size: 0.8em;
+    font-size: clamp(0.75em, 2vw, 0.85em);
   }
 
   .ai-word {
-    font-size: 1em;
+    font-size: clamp(0.9em, 2.2vw, 1.1em);
   }
 
-  .tool-word::after {
-    right: -15px;
-    font-size: 0.4em;
-  }
-
-  .hero-description {
-    margin-bottom: 2rem;
+  .artistic-description {
+    font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+    max-width: min(92vw, 550px);
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.5;
   }
 
   .cta-button {
-    padding: 16px 32px;
-    font-size: 1rem;
+    padding: clamp(12px, 2vw, 16px) clamp(24px, 4vw, 32px);
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
   }
 
   .features-section {
-    padding: 2rem 0 4rem;
+    padding: clamp(1.5rem, 3vw, 2rem) 0 clamp(3rem, 5vw, 4rem);
   }
 
   .features-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: clamp(1.2rem, 2.5vw, 1.8rem);
+    max-width: 500px;
   }
 
   .feature-card {
-    padding: 2rem 1.5rem;
+    padding: clamp(1.5rem, 3vw, 2rem);
   }
 }
 
 @media (max-width: 480px) {
-  .content-wrapper {
-    padding: 0 0.75rem;
+  .hero-section {
+    min-height: clamp(35vh, 45vh, 55vh);
+    padding: clamp(0.75rem, 1.5vw, 1rem) 0;
   }
-  
+
   .hero-content {
     max-width: 100%;
+    padding: 0 clamp(0.5rem, 1vw, 1rem);
   }
-  
+
+  .artistic-title {
+    gap: clamp(0.05rem, 0.3vw, 0.2rem);
+  }
+
+  .title-word {
+    font-size: clamp(0.7em, 1.8vw, 0.8em);
+  }
+
+  .artistic-description {
+    font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+    max-width: 95vw;
+    line-height: 1.4;
+  }
+
   .cta-button {
-    padding: 14px 28px;
-    font-size: 0.95rem;
+    padding: clamp(10px, 2vw, 14px) clamp(20px, 3vw, 28px);
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
   }
-  
+
   .feature-card {
-    padding: 1.5rem;
+    padding: clamp(1.2rem, 2.5vw, 1.8rem);
   }
-  
+
   .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+  }
+
+  .feature-title {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+  }
+
+  .feature-description {
+    font-size: clamp(0.8rem, 1.3vw, 0.9rem);
   }
 }
 
