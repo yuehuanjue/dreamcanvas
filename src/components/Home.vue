@@ -39,9 +39,7 @@
             >神器</span>
           </div>
           <p class="hero-description artistic-description" v-motion-fade-visible-once>
-            <span class="desc-highlight">体验前沿</span>的人工智能图像生成技术，
-            <span class="desc-accent">将您的创意</span>转化为
-            <span class="desc-glow">惊艳的视觉作品</span>
+            <span class="desc-highlight">体验前沿</span>的人工智能图像生成技术，<span class="desc-accent">将您的创意</span>转化为<span class="desc-glow">惊艳的视觉作品</span>
           </p>
           
           <!-- CTA Button -->
@@ -163,14 +161,17 @@ const shouldUseComplexAnimations = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
-  padding: 2rem 0;
+  flex: 0.6;
+  padding: 1rem 0 2rem;
+  position: relative;
 }
 
 .hero-content {
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  z-index: 10;
+  position: relative;
 }
 
 .hero-title {
@@ -257,11 +258,12 @@ const shouldUseComplexAnimations = computed(() => {
   font-size: clamp(0.85rem, 1.6vw, 1rem);
   margin-bottom: 1.5rem;
   line-height: 1.5;
-  max-width: 580px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
 }
 
 .desc-highlight {
@@ -504,8 +506,11 @@ const shouldUseComplexAnimations = computed(() => {
 
 /* Features Section */
 .features-section {
-  padding: 2.5rem 0 3rem;
+  padding: 1rem 0 3rem;
   width: 100%;
+  margin-top: -2rem;
+  position: relative;
+  z-index: 5;
 }
 .features-grid {
   display: grid;
@@ -649,7 +654,7 @@ const shouldUseComplexAnimations = computed(() => {
 
   .hero-section {
     min-height: 60vh;
-    padding: 2rem 0;
+    padding: 1.5rem 0 2rem;
   }
 
   .artistic-title {
